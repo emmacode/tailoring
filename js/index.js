@@ -32,3 +32,34 @@ $(window).on("scroll", function() {
 //   );
 //   return false;
 // });
+// window.sr = ScrollReveal();
+// sr.reveal("#blue", {
+//   duration: 2000,
+//   origin: "left",
+//   distance: "100px"
+// });
+// sr.reveal("#white", {
+//   duration: 2000,
+//   origin: "top",
+//   distance: "100px"
+// });
+// sr.reveal("#light_pink", {
+//   duration: 2000,
+//   origin: "right",
+//   distance: "100px"
+// });
+// sr.reveal("#white_black", {
+//   duration: 2000,
+//   origin: "bottom",
+//   distance: "100px"
+// });
+// sr.reveal(".about-text", {
+//   duration: 2000,
+//   origin: "left",
+//   distance: "100px",
+// });
+// sr.reveal(".promise", {
+//   duration: 2000,
+//   origin: "right",
+//   distance: "100px",
+// });
