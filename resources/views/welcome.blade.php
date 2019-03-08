@@ -162,7 +162,7 @@
             <div class="col-sm-4 col-md-4 col-lg-4 mt-3">
               <h4>Subcribe</h4>
               <span class="animate-border border-black"></span>
-             <form method="POST" class="mt-3" action="{{route('subscribe-newsletter')}}">
+             <form method="POST" class="mt-3" action="{{route('newsletter.subscribe')}}">
                <div class="subcribe-form">
                  <input type="email" placeholder="Your email address" name="email">
                  {{csrf_field()}}

@@ -19,5 +19,5 @@ Route::group(['prefix' => 'newsletter'], function() {
    Route::get('/subscribe', function() {
        return redirect()->route('home');
    });
-   Route::post('/subscribe', 'NewsletterController@subscribe')->name('subscribe-newsletter');
+   Route::post('/subscribe', 'NewsletterController@subscribe')->name('newsletter.subscribe');
 });

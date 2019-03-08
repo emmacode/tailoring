@@ -21,6 +21,7 @@ abstract class TestCase extends BaseTestCase
     public function setUp(): void
     {
         parent::setUp();
+        $this->withoutExceptionHandling();
         $this->faker = Faker::create();
     }
     /**
