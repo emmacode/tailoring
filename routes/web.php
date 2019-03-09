@@ -21,3 +21,6 @@ Route::group(['prefix' => 'newsletter'], function() {
    });
    Route::post('/subscribe', 'NewsletterController@subscribe')->name('newsletter.subscribe');
 });
+
+Route::get('/services', 'SiteController@services')->name('services');
+Route::post('/services', 'SiteController@handleServiceRequest')->name('services.request');
