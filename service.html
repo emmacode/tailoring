@@ -75,10 +75,10 @@
         <div class="container">
             <div class="row">
              <div class="col-md-6 mt-5">
-               <form method="POST" class="form-group">
+               <form method="POST" id="form" class="form-group">
                  <div>
                    <label>Tell us about the style you want<span class="pink-text">*</span> </label><br>
-                   <textarea></textarea>
+                   <textarea id="tell"></textarea>
                  </div>
                  <div>
                    <label>Send us a picture for further clarifications</label><br>
@@ -86,13 +86,13 @@
                  </div>
                  <div>
                    <label>How do we get your fabric <span class="pink-text">*</span></label><br>
-                   <textarea></textarea>
+                   <textarea id="fabric"></textarea>
                  </div>
                  <div>
                    <label>How do we get your measurement <span class="pink-text">*</span></label><br>
-                   <textarea></textarea>
+                   <textarea id="meaurement"></textarea>
                  </div>
-               </form>
+               
              </div>
              <div class="col-md-6 mt-5">
                <h1 class="black-text">Important Notice</h1>
@@ -109,7 +109,7 @@
         <div class="row">
           <div class="col-md-6">
             <h2>Let us know you</h2>
-            <form method="POST" class="form-group">
+            
               <div>
                 <label>Your Name</label><br>
                 <input type="text">
@@ -122,14 +122,14 @@
                 <label>Address</label><br>
                 <input type="text">
               </div>
-            </form>
+            
           </div>
         </div>
       </div>
 <!-- Measurements -->
 <section class="section">
   <div class="container"><h2>Measurements</h2>
-    <form method="POST" class="form-group">
+   
         <div class="row">
       
             <div class="col-md-3">
@@ -174,7 +174,7 @@
             </div>
           </div>
           <div class="d-flex justify-content-center mt-5">
-              <button type="submit" class=" btn btn-md btn-primary">Submit</button>
+              <button type="submit" class=" btn btn-md btn-primary">Next</button>
           </div>
           <div class="d-flex justify-content-center mt-2">
               <a href="#">Click Here</a> To Make Payment
