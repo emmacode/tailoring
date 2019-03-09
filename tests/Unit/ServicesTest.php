@@ -31,7 +31,7 @@ class ServicesTest extends TestCase
             'measurement_round_sleeves' => $this->faker->randomDigit,
         ];
         $this->post(route('services.request'), $data)
-            ->assertStatus(201)
+            ->assertStatus(302)
             ->assertRedirect(route('services'));
     }
 

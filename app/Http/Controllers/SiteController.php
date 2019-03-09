@@ -47,6 +47,6 @@ class SiteController extends Controller
             ]);
         $serviceRequest->save();
         Session::flash('message', "Your request has been received and we will get to you shortly.");
-        return redirect()->route('services',[],201);
+        return redirect()->route('services');
     }
 }
