@@ -576,6 +576,10 @@ h4 {
     font-weight: 100;
     font-size: 30px;
 }
+.h1-tag{
+    color: rgb(118, 120, 122);
+    font-weight:400;
+}
 
 @media(max-width:574px) {
     h1 {
