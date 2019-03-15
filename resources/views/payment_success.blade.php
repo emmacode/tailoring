@@ -70,11 +70,11 @@
               </header>
               <section class="section">
                 <div class="container">
-                    <div class="row">
+                    <div class="row" style="margin-top: 72px;">
                         <div class="col-md-3"></div>
                          <div class="col-md-6 text-center">
-                                <img src="./public/images/download.png" alt="">
-                                <h1 class="h1-tag"> Thanks for your request. <br>Your payment has been received and we would be in touch shortly  </h1>
+                                <img src="/images/download.png" alt="">
+                                <h1 class="h1-tag">{{$message}}</h1>
                             </div>
                             <div class="col-md-3"></div>
                     </div>

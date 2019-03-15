@@ -24,3 +24,7 @@ Route::group(['prefix' => 'newsletter'], function() {
 
 Route::get('/services', 'SiteController@services')->name('services');
 Route::post('/services', 'SiteController@handleServiceRequest')->name('services.request');
+Route::get('/payment-error', 'SiteController@paymentError')->name('services.payment-error');
+Route::get('/payment-verified', 'SiteController@paymentSuccess')->name('services.payment-verified');
+
+Route::get('/about', 'SiteController@about')->name('about');

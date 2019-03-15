@@ -73,9 +73,20 @@
   <div class="container"><h1 class="blue-text">Let's Make Your Clothes!</h1></div>
   <div class="make-black">
     <div class="container">
-      <div class="row">
+        @if ($errors->any())
+        @foreach($errors->all() as $error)
+          <div class="alert alert-danger">{{$error}}</div>
+        @endforeach
+      @endif
+      @if (\Illuminate\Support\Facades\Session::has('message'))
+        <div class="alert alert-success">
+          {{\Illuminate\Support\Facades\Session::get('message')}}
+        </div>
+      @endif
+      <div class="row">    
         <div class="col-md-6 mt-5">
-          <form method="POST" id="form" class="form-group" action="{{route('services.request')}}">
+          <form method="post" id="form" class="form-group" action="{{route('services.request')}}"
+            enctype="multipart/form-data">
             {{csrf_field()}}
             <div>
               <label>Tell us about the style you want<span class="pink-text">*</span> </label><br>
@@ -106,6 +117,7 @@
 <h1 class="text-center pink-text">Details & Measurements</h1>
 <hr class="under-details">
 <!-- Details -->
+<input type="hidden" name="reference" value={{$reference}}>
 <div class="container">
   <div class="row">
     <div class="col-md-6">
@@ -113,11 +125,15 @@
 
       <div>
         <label>Your Name</label><br>
-        <input type="text" name="name">
+        <input type="text" name="name" id="name">
+      </div>
+      <div>
+        <label>Your Email</label><br>
+        <input type="text" name="email" id="email">
       </div>
       <div>
         <label>Your Phone Number</label><br>
-        <input type="text" name="phone">
+        <input type="text" name="phone" id="phone">
       </div>
       <div>
         <label>Address</label><br>
@@ -175,10 +191,7 @@
       </div>
     </div>
     <div class="d-flex justify-content-center mt-5">
-      <button type="submit" class=" btn btn-md btn-primary">Next</button>
-    </div>
-    <div class="d-flex justify-content-center mt-2">
-      <a href="#">Click Here</a> To Make Payment
+      <button type="button" class=" btn btn-md btn-primary" onclick="payWithPaystack()">Complete Payment</button>
     </div>
     </form>
   </div>
@@ -231,15 +244,48 @@
   </div>
 </div>
 
-<!-- JQuery -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<!-- Bootstrap tooltips -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-<!-- Bootstrap core JavaScript -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.min.js"></script>
-<!-- MDB core JavaScript -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.3/js/mdb.min.js"></script>
-<!-- <script src="https://unpkg.com/scrollreveal"></script> -->
 <script src="js/index.js"></script>
+<script src="https://js.paystack.co/v1/inline.js"></script>
+  <script>
+      function payWithPaystack(){
+        var phone = $('#phone').val(),
+            email;
+
+        if ($('#email').val() == "") {
+          email = $('#email').val();
+        } else {
+          email = "hello@tailoring.com.ng";
+        }
+          var amount = parseInt("15000 * 100");
+          var handler = PaystackPop.setup({
+              key: 'pk_test_0f5dd52881c463a7b9dbfc2c750b3f1df049245f',
+              email: email,
+              amount: amount,
+              currency: "NGN",
+              ref: '{{$reference}}',
+              metadata: {
+                  custom_fields: [
+                      {
+                          display_name: "Mobile Number",
+                          variable_name: "mobile_number",
+                          value: phone
+                      }
+                  ]
+              },
+              callback: function(response){
+                var form = $('#form');
+                form.submit();
+              },
+              onClose: function(){
+                  alert("Payment has been cancelled");
+              }
+          });
+          handler.openIframe();
+      }
+  </script>
 </body>
 </html>
