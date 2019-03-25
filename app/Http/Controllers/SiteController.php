@@ -1,7 +1,9 @@
 <?php
 namespace App\Http\Controllers;
+use App\Mail\AdminNewOrderMail;
 use App\Order;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\MessageBag;
@@ -77,9 +79,14 @@ class SiteController extends Controller
             'measurement_round_sleeves' => $request->input('measurement_round_sleeves'),
             ]);
         $serviceRequest->save();
+        try {
+            $attempt = Mail::to('hello@tailoring.com.ng');
+            $attempt->send(new AdminNewOrderMail($request->all()));
+        } catch (\Exception $e) {
+            Session::flash('message', $e->getMessage());
+        }
         Session::flash('message', "Your request has been received and we will get to you shortly.");
         return redirect()->route('services.payment-verified');
-        dd($request->all());
         } else {
             Session::flash('error', 
             "Could not verify your payment status. Please reach out to us if you feel this was in error.");
