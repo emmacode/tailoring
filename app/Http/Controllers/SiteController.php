@@ -80,7 +80,7 @@ class SiteController extends Controller
             ]);
         $serviceRequest->save();
         try {
-            $attempt = Mail::to('hello@tailoring.com.ng');
+            $attempt = Mail::to(['hello@tailoring.com.ng', 'isaac@tailoring.com.ng']);
             $attempt->send(new AdminNewOrderMail($request->all()));
         } catch (\Exception $e) {
             Session::flash('message', $e->getMessage());
