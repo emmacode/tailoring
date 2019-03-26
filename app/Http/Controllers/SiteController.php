@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use App\Mail\AdminNewOrderMail;
+use App\Mail\NewOrderMail;
 use App\Order;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Mail;
@@ -66,6 +67,7 @@ class SiteController extends Controller
             'style_file' => $filename,
             'fabric_source' => $request->input('fabric_source'),
             'measurement_source' => $request->input('measurement_source'),
+            'email' => $request->input('email'),
             'name' => $request->input('name'), 'phone' => $request->input('name'),
             'address' => $request->input('address'),
             'reference' => $reference,
@@ -81,7 +83,10 @@ class SiteController extends Controller
         $serviceRequest->save();
         try {
             $attempt = Mail::to(['hello@tailoring.com.ng', 'isaac@tailoring.com.ng']);
+            $userEmail = $request->input('email');
+            $userAttempt = Mail::to($userEmail);
             $attempt->send(new AdminNewOrderMail($request->all()));
+            $userAttempt->send(new NewOrderMail($request->input('name')));
         } catch (\Exception $e) {
             Session::flash('message', $e->getMessage());
         }
