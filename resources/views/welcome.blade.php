@@ -23,7 +23,7 @@
       <main>
         <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
           <div class="container-fluid">
-            <a href="./index.html"  class="navbar-brand">
+            <a href=""  class="navbar-brand">
               <i class="fas fa-play" style="color:rgb(224, 14, 77);font-size:8px;"></i> <img src="./images/logo.png" height="50px" alt="Tailoring">
             </a>
 
@@ -44,10 +44,10 @@
                         <a href="#how"  class="nav-link "> <i class="fas fa-play" style="color:rgb(224, 14, 77);font-size:8px;"></i> How It Works</a>
                       </li>
                       <li class="nav-item">
-                        <a href="./about.html" class="nav-link">About</a>
+                        <a href="/about" class="nav-link">About</a>
                       </li>
                       <li class="nav-item">
-                        <a href="./service.html" class="nav-link">Our Services</a>
+                        <a href="/services" class="nav-link">Our Services</a>
                       </li>
                       <li class="nav-item">
                         <a href="#" class="nav-link">FAQ</a>
@@ -67,7 +67,7 @@
              <div class="col-md-6 text-center">
                <h1 class="text-center">Professional Tailor <br> For your clothing needs</h1>
                <h6 class="text-center mb-3" style="color:rgb(224, 14, 77)">Offering you the best services</h6>
-               <a href="./service.html" class="test-btn">Place Order</a>
+               <a href="/services" class="test-btn">Place Order</a>
              </div>
             </div>
           </div>
