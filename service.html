@@ -23,7 +23,7 @@
       href="https://fonts.googleapis.com/css?family=Quando|Quicksand|Roboto|Barlow+Semi+Condensed"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="./public/css/index.css" />
     <title>Tailoring</title>
   </head>
   <body>
@@ -85,8 +85,8 @@
                    <input type="file">
                  </div>
                  <div>
-                   <label>How do we get your fabric <span class="pink-text">*</span></label><br>
-                   <textarea id="fabric"></textarea>
+                   <label>Do you have a fabric? <span class="pink-text">*</span></label><br>
+                <b class="mr-2">YES</b><input type="radio" name="radio" id="yes" value="yes" class="mr-5"> <b class="mr-2">NO</b><input type="radio" name="radio" id="no" value="no">
                  </div>
                  <div>
                    <label>How do we get your measurement <span class="pink-text">*</span></label><br>
@@ -96,6 +96,10 @@
              </div>
              <div class="col-md-6 mt-5">
                <h1 class="black-text">Important Notice</h1>
+               <h4 class="black-text mb-5">Upload a full picture not more than a week</h4>
+               <h4 class="black-text">
+                You have 24 hours to send feedback for any correction and measurement after delivery
+               </h4>
              </div>
             </div>
            </div>
@@ -107,23 +111,29 @@
       <!-- Details -->
       <div class="container">
         <div class="row">
-          <div class="col-md-6">
-            <h2>Let us know you</h2>
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <h2 class="text-center">Let us know you</h2>
             
               <div>
-                <label>Your Name</label><br>
+                <label>Your Name<span class="pink-text">*</span></label><br>
                 <input type="text">
               </div>
               <div>
-                <label>Your Phone Number</label><br>
+                <label>Your Phone Number<span class="pink-text">*</span></label><br>
                 <input type="text">
               </div>
               <div>
-                <label>Address</label><br>
+                <label>Email Address<span class="pink-text">*</span></label><br>
                 <input type="text">
               </div>
+              <div>
+                  <label>Pickup Address<span class="pink-text">*</span></label><br>
+                  <input type="text">
+                </div>
             
           </div>
+          <div class="col-md-2"></div>
         </div>
       </div>
 <!-- Measurements -->
