@@ -11,3 +11,4 @@ npm-debug.log
 yarn-error.log
 /.idea
 /public/images/styles/*
+/public_html/images/styles/*
